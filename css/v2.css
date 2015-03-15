@@ -1,0 +1,391 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus, textarea:focus, input:focus {
+    font-size: 16px;
+    background:#eee;
+  }
+ }
+
+.wait, .wait * {
+  cursor: wait !important;
+}
+
+#player {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+.infobtn {
+  position: absolute;
+  right: 0px;
+  width: 30px;
+  height: 50px;
+  top: 15px;
+}
+.infobtn div {
+  background-color: transparent;
+  margin-left: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  width: 8px;
+  height: 8px;
+  transition: background-color .2s ease-in-out 0s;
+}
+.tile:hover .infobtn div{
+  background-color: white;
+}
+
+.tile:hover .infobtn:hover div{
+  background-color: #00BCD4;
+}
+
+.mini-grid {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.9);
+  position: absolute;
+  left: 100%;
+  transition: all .2s ease-in-out 0s;
+  overflow-y: scroll;
+  width: 125%;
+  padding-left: 5px;
+}
+
+.mini-grid p{
+  font-size: 16px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid rgba(0,0,0,0.9);
+  width: 80%;
+}
+
+.mini-grid p span {
+  display: none;
+  float: right;
+  margin-right: 5px;
+}
+
+.mini-grid p:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.mini-grid p:hover span {
+  display: inline;
+}
+
+.mini-grid.left {
+  left: 0px;
+}
+
+.tile{
+  overflow: hidden;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  padding: 0px;
+}
+.jumbotron .header {
+  background-color: #03A9F4;
+  padding-top: 0px;
+}
+.jumbotron.right {
+  position: fixed;
+  right: 0px;
+  height: 100%;
+  width: 23%;
+  min-width: 200px;
+  background-color: #434343;
+  padding: 0px 12px;
+  box-shadow: 0px 0px 5px black;
+}
+.jumbotron.left {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 40%;
+  min-width: 200px;
+  background-color: #1A1A1A;  
+  box-shadow: 0px 0px 5px black;
+  transition: all 0.5s ease-in-out 0s;
+  z-index: 2;
+}
+.jumbotron.left.slideout {
+  left: calc(-40% - 200px);
+}
+#search-panel {
+  height: 20%;
+  min-height: 200px;
+}
+#track-panel {
+  height:100%;
+}
+#echonest img {
+  position:fixed;
+  bottom: 0px;
+  right: 0px;
+}
+#vid-holder {
+  position: fixed;
+  width: 77%;
+  height: 100%;
+  background-color: #434343;
+}
+div h3 {
+  text-align: center;
+  margin: 12px 0px 21px;
+  padding-bottom: 9.5px;
+  border-bottom: 1px solid black;
+}
+div h1 {
+  text-align: center;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+  margin-top: 0px;
+}
+
+.controls {
+  height:60px;
+  margin: 0px 30px;
+  background-color: #EBEBEB;
+}
+
+.hamburger {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 0px;
+  z-index: 201;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out 0s;
+}
+.hamburger div {
+  height: 6px;
+  margin-bottom: 6px;
+  background-color: #01579B;
+  transition: all 0.3s ease-in-out 0s;
+}
+.hamburger:hover div {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.51);
+}
+#left-panel ul {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 20px;
+  text-align: center;
+}
+#left-panel ul li {
+  display: inline;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgba(235, 235, 235, 0.8);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#left-panel ul li:hover {
+  color: rgba(235, 235, 235, 1);
+}
+li.right {
+  float: right;
+}
+#left-panel footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  background-color: #000000;
+  border-top: 1px solid rgba(0,0,0,.5);
+}
+#left-panel footer p {
+  font-size: 15px;
+  margin-bottom: 9px;
+  margin-top: 6px;
+}
+#left-panel footer a {
+  color: #03A9F4;
+}
+#left-panel footer a:hover {
+  color: rgba(113, 211, 255, 1);
+  text-decoration: none;
+}
+#search {
+  width: 100%;
+  max-width: 300px;
+}
+.triangle-tab {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.overlay {
+  transition: all .2s ease-in-out 0s;
+}
+
+.overlay.left {
+  left: -100% !important;
+}
+
+.tracklist-wrapper{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.tracklist-scroller{
+  width: 125%;
+  overflow: auto;
+  height: calc(100% - 112px);
+}
+
+#tracklist {
+  width:80%;
+}
+
+#tracklist .tile.current {
+  background-color: #03A9F4;
+}
+
+.tile {
+  transition: all .2s ease-in-out 0s;
+}
+
+.grid-wrapper{
+  overflow: hidden;
+  padding-left:10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-scroller{
+  width: 125%;
+  overflow: auto;
+  height: calc(100% - 195px);
+}
+
+#grid {
+  width:80%;
+}
+#grid .tile {
+  background-color: black;
+  width: 32%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  float: left;
+  margin-bottom: 15px;
+}
+
+#grid .tile .image {
+  background-size: contain;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left: 0;
+  right: 0;
+  background-repeat: no-repeat;
+}
+
+#grid .tile:after {
+  padding-top: 100%;
+  display: block;
+  content: '';
+}
+
+#tracklist .tile {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 0px;
+  background-color: rgba(27, 27, 27, 1);
+}
+
+#tracklist .tile .image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+#tracklist .tile .overlay {
+  float: left;
+  background-color: transparent;
+  max-width: calc(100% - 80px);
+  width: 100%;
+  min-height: 80px;
+  height: auto;
+}
+
+#grid .tile:nth-of-type(3n+2){
+  margin-left:2%;
+  margin-right:2%;
+}
+#grid .tile img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width:100%;
+}
+
+#grid .tile .overlay {
+  width: 100%;
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+}
+
+.tile .overlay {
+  position: relative;
+  text-align: left;
+  min-height: 80px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 15px;
+  padding-left: 10px;
+  padding-right: 25px;
+  transition: all .2s ease-in-out 0s;
+}
+
+.tile .overlay h1 {
+  font-size: 16px;
+  color: white;
+  margin: 0px;
+  border: none;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight:400;
+}
+
+.tile .overlay h2 {
+  margin: 0px;
+  font-size: 12px;
+  color: white;
+}
+
+#grid .tile .overlay h2, #grid .tile .overlay h1 {
+  //color: transparent;
+}
+
+#grid .tile:hover .overlay h2, #grid .tile:hover .overlay h1 {
+  //color: white;
+}
+
+#grid .tile:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#tracklist .tile:hover .overlay{
+  background-color: rgba(0, 0, 0, 0.4);
+}
