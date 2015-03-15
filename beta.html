@@ -66,6 +66,29 @@
     <div id="echonest">
         <a href="http://the.echonest.com"><img src="echo.png"></a>
     </div>
+    <script id="infoBtnTemplate" type="x-tmpl-mustache">
+      <div class="infobtn" onclick="onInfoBtnClick(this, event)">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </script>
+    <script id="tileTemplate" type="x-tmpl-mustache">
+      <div class="tile" onclick="{{{onclickfunc}}}">
+        <div class="image" style="background-image: url('{{{artworkUrl}}}');">
+        </div>
+        <div class="mini-grid">
+        </div>
+        <div class="overlay">
+          <h1>{{album}}
+          {{^album}}
+          {{song}}
+          {{/album}}</h1>
+          <h2>{{artist}}</h2>
+        </div>
+        {{> infoBtn}}
+      </div>
+    </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/mustache.min.js"></script>
     <script src="js/template.js" type="text/javascript"></script>

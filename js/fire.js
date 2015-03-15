@@ -2,8 +2,8 @@
  * Container for global app variables and functions.
  */
 var fire = {
-  grid : document.getElementById('grid'),
-  tracklist : document.getElementById('tracklist'),
+  grid : $('#grid'),
+  tracklist : $('#tracklist'),
   player : '',
 	tracks : [],
 	history : [],
@@ -66,8 +66,8 @@ var fire = {
 	 * @return {undefined}
 	 */
 	updateCurrentIndex : function(index){
-		this.tracklist.children[this.currentIndex].classList.remove('current');
-		this.tracklist.children[index].classList.add('current');
+		this.tracklist.children()[this.currentIndex].classList.remove('current');
+		this.tracklist.children()[index].classList.add('current');
 		this.currentIndex = index;
 	},
 

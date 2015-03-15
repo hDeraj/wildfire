@@ -13,6 +13,7 @@ function addMiniTrack(data, element){
   p.appendChild(plus);
   p.setAttribute('onclick', data.onclick);
   p.data = data;
+  console.log(data);
   minigrid.appendChild(p);
 }
 
@@ -22,7 +23,7 @@ function addMiniTrack(data, element){
  */
 function addSearchResult(data){
   var tile = template.tile(data);
-  fire.grid.appendChild(tile);
+  fire.grid.append(tile);
 }
 
 /**
@@ -35,7 +36,7 @@ function addTrack(element){
   if(fire.tracks.length == 1){
     clear(fire.tracklist);
   }
-  fire.tracklist.appendChild(tile);
+  fire.tracklist.append(tile);
 }
 
 /**
@@ -44,7 +45,7 @@ function addTrack(element){
  * @return {undefined}
  */
 function clear(element){
-  element.innerHTML = '';
+  element.html('');
 }
 
 
@@ -68,7 +69,7 @@ function onMiniClicked(element, event){
 
   var tile = {'artist' : data.artist,
               'song' : data.song,
-              'artwork' : data.artwork,
+              'artworkUrl' : data.artworkUrl,
               'onclickfunc' : 'YT.updatePlayer(' + (i-1) + ');'};
   addTrack(tile);
 
@@ -137,7 +138,7 @@ function loadMiniResults(data, params){
       trackName : res.trackName,
       album : res.collectionName,
       albumId : res.collectionId,
-      artwork : res.artworkUrl100 || res.artworkUrl60,
+      artworkUrl : res.artworkUrl100 || res.artworkUrl60,
       song : title,
       onclick : 'onMiniClicked(this, event);'
     };
@@ -171,7 +172,7 @@ function loadSongResults(data, params){
     
     var tile = {'artist' : res.artistName,
             'song' : title,
-            'artwork' : albumArt,
+            'artworkUrl' : albumArt,
             'onclickfunc' : 'YT.updatePlayer(' + (i-1) + ');'};
     addTrack(tile);
   }
@@ -189,8 +190,8 @@ function loadAlbumResults(data){
     var res = data.results[i];
     var tile = {'artist' : res.artistName,
             'album' : res.collectionName,
-            'artwork' : res.artworkUrl100,
-            'onclickfunc' : 'search("", "song", ' + res.collectionId + ', loadSongResults, {id : ' + res.collectionId + '});',
+            'artworkUrl' : res.artworkUrl100,
+            'onclickfunc' : 'search(\'\', \'song\', ' + res.collectionId + ', loadSongResults, {id : ' + res.collectionId + '});',
             'collectionId' : res.collectionId};
     addSearchResult(tile);
   }
