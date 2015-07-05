@@ -28,7 +28,6 @@ var fire = {
               (bundle.id ? '&id=' + bundle.id : '') + '&callback=?';
     fire.showLoading();
     $.getJSON(url, function(data) {
-      console.log(data);
       data.query = bundle.query;
       bundle.callback(data, bundle.callbackParams);
       fire.stopLoading();
@@ -58,18 +57,9 @@ var fire = {
     });
 
     request.execute(function(response){
-      console.log(response.items[0].id.videoId);
-      console.log(response.items[0].snippet.title);
       bundle.callback(response, bundle.callbackParams);
     });
     fire.showLoading();
-    /*
-    $.getJSON(url, function(data) {
-      data.query = bundle.query;
-      bundle.callback(data, bundle.callbackParams);
-      fire.stopLoading();
-    });
-    */
   },
 
   /**

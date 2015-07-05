@@ -29,7 +29,6 @@ template = {
    * A media tile.
    */
   tile: function(data, toString){
-    console.log(data);
     s = Mustache.render(tileTemplate,
       data,
       {
