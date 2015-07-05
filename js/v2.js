@@ -23,6 +23,7 @@ function addMiniTrack(data, element){
  */
 function addSearchResult(data){
   var tile = template.tile(data);
+  console.log(tile);
   fire.grid.append(tile);
 }
 
@@ -101,19 +102,13 @@ function loadFromHash(){
 function loadVideo(data, params){
   var query = data.query;
   var index = params.index || 0;
-  if (data.feed.entry != null) {
-    var videoId = data.feed.entry[0].id.$t.split('video:')[1];
-    fire.tracks[index] = videoId;
-    if(index == 0){
-      YT.createPlayer();
-    }
-    if(fire.player.loadPlaylist){
-      fire.player.loadPlaylist(fire.tracks);
-    }
-  }else{
-    // No results from search
-    console.log('0 results for: ' + query);
-    console.log(data);
+  var videoId = data.items[0].id.videoId;
+  fire.tracks[index] = videoId;
+  if(index == 0){
+    YT.createPlayer();
+  }
+  if(fire.player.loadPlaylist){
+    fire.player.loadPlaylist(fire.tracks);
   }
 }
 
@@ -128,11 +123,10 @@ function loadMiniResults(data, params){
   var len = data.results.length - 1;
   for(var i=1; i<data.results.length; i++){
     var res = data.results[i];
-    console.log(res);
     trackNumber = res.trackNumber;
     var title = res.trackName;
     title = title.length > 30 ? title.slice(0,27) + '...' : title;
-    
+    console.log(res);
     var info = {
       artist : res.artistName,
       trackName : res.trackName,
@@ -186,6 +180,7 @@ function loadSongResults(data, params){
 function loadAlbumResults(data){
   clear(fire.grid);
   fire.setHashVar('q', data.query);
+  console.log(data);
   for(var i=0; i<data.results.length; i++){
     var res = data.results[i];
     var tile = {'artist' : res.artistName,
@@ -276,6 +271,16 @@ document.getElementById('search').onkeypress = function(e){
   }
 }
 
+
+googleApiClientReady = function() {
+  gapi.client.setApiKey('AIzaSyBnzksgj3UcjI5z0RkF8orPpG9Xy6g3J7E');
+  gapi.client.load('youtube','v3', function(){
+    console.log('youtube loaded');
+  });
+}
+
+
+
 /**
  * Code to be run on document ready.
  * @return {undefined}
@@ -286,6 +291,8 @@ $(document).ready(function() {
     album: 'Add songs from the left panel',
     artist: 'Nothing is playing'
   });
+
+  // https://developers.google.com/youtube/iframe_api_reference
   var tag = document.createElement('script');
   tag.src = 'https://www.youtube.com/iframe_api';
   var firstScriptTag = document.getElementsByTagName('script')[0];
