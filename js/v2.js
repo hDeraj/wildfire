@@ -13,7 +13,6 @@ function addMiniTrack(data, element){
   p.appendChild(plus);
   p.setAttribute('onclick', data.onclick);
   p.data = data;
-  console.log(data);
   minigrid.appendChild(p);
 }
 
@@ -23,7 +22,6 @@ function addMiniTrack(data, element){
  */
 function addSearchResult(data){
   var tile = template.tile(data);
-  console.log(tile);
   fire.grid.append(tile);
 }
 
@@ -126,7 +124,6 @@ function loadMiniResults(data, params){
     trackNumber = res.trackNumber;
     var title = res.trackName;
     title = title.length > 30 ? title.slice(0,27) + '...' : title;
-    console.log(res);
     var info = {
       artist : res.artistName,
       trackName : res.trackName,
@@ -180,7 +177,6 @@ function loadSongResults(data, params){
 function loadAlbumResults(data){
   clear(fire.grid);
   fire.setHashVar('q', data.query);
-  console.log(data);
   for(var i=0; i<data.results.length; i++){
     var res = data.results[i];
     var tile = {'artist' : res.artistName,
